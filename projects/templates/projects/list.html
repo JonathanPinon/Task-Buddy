@@ -22,7 +22,7 @@
                     {% for project in list_object %}
                     <tr>
                         <td>{{ project.name }}</td>
-                        <td>{{project.items.all|length }}</td>
+                        <td>{{ project.items.all|length }}</td>
                     </tr>
                     {% endfor %}
                 </tbody>
