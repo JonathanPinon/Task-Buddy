@@ -1,9 +1,9 @@
 {% extends 'base.html' %}
+
 {% block title %}
     Detail HTML
 {% endblock title %}
-
- {% block content%}
+{% block content %}
     <main>
         <div>
             <h1>{{ list_project.name }}</h1>
@@ -13,28 +13,28 @@
                 <a href="{% url 'create_task' %}">Create a new task</a>
             </p>
             {% if list_project.tasks.all|length == 0 %}
-            <p>This project has no tasks</p>
+                <p>This project has no tasks</p>
             {% else %}
-            <table>
-                <thead>
-                    <th>Name</th>
-                    <th>Assignee</th>
-                    <th>Start date</th>
-                    <th>Due date</th>
-                    <th>Is completed</th>
-                </thead>
-                <tbody>
-                    {% for task in list_project.tasks.all %}
-                    <tr>
-                        <td>{{ task.name }}</td>
-                        <td>{{ task.assignee }}</td>
-                        <td>{{ task.start_date }}</td>
-                        <td>{{ task.due_date }}</td>
-                        <td>{{ task.is_completed|yesno }}</td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
+                <table>
+                    <thead>
+                        <th>Name</th>
+                        <th>Assignee</th>
+                        <th>Start date</th>
+                        <th>Due date</th>
+                        <th>Is completed</th>
+                    </thead>
+                    <tbody>
+                        {% for task in list_project.tasks.all %}
+                            <tr>
+                                <td>{{ task.name }}</td>
+                                <td>{{ task.assignee }}</td>
+                                <td>{{ task.start_date }}</td>
+                                <td>{{ task.due_date }}</td>
+                                <td>{{ task.is_completed|yesno }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
             {% endif %}
         </div>
     </main>
